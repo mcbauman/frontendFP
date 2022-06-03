@@ -13,7 +13,7 @@ export default function Messages(props){
     function requestMessages(){
         const headers = { Authorization: `Bearer ${props.token}` }
     
-        axios.get(`${process.env.BE_SERVER}/message/find`, {headers})
+        axios.get(`${process.env.REACT_APP_BE_SERVER}/message/find`, {headers})
             .then(res => setAllMsg(res.data))
             .catch(error => alert(error.response?.data?.error || "Unknown error"))
     }
