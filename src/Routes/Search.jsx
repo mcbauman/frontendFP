@@ -17,8 +17,6 @@ export default function Search(props){
     const [subject,setSubject]=useState("")
     const [content,setContent]=useState("")
     
-console.log(process.env.REACT_APP_BE_SERVER);
-
     function submitFunction(e){
         e.preventDefault()
         const headers = { Authorization: `Bearer ${props.token}` }
