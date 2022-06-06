@@ -56,10 +56,11 @@ body{
                     border-bottom:solid 10px rgb(188,70,58); 
                     // border-top:solid 30px rgb(188,70,58);
                     div{
+                        width: 100%;
                         .profileHeader{
                             display: flex;
-                            flex-wrap: wrap;
-                            justify-content: flex-end;
+                            // flex-wrap: wrap;
+                            justify-content: space-between;
                         }
                     }
                     .show{
@@ -78,10 +79,14 @@ body{
                     margin-bottom: 10px;
                     background-color: antiquewhite;
                     border-radius: 20px;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
+//                    display: flex;
+//                    flex-wrap: wrap;
+//                    justify-content: space-between;
                     border-bottom:solid 10px rgb(188,70,58);
+                    .messageHeader{
+                        display: flex;
+                        justify-content: space-between;
+                    }
                     .show{
                         display: block;
                     }

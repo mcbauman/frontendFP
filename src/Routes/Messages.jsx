@@ -43,15 +43,17 @@ export default function Messages(props){
             <section id="messages">
                 {allMsg.map(item=>(
                     <div key={item._id} className="messages">
-                        <img src={exmpl}/>
-                        <div>{item.author.userName}</div>
-                        <div>{item.subject}</div>
-                        <div>{item.content}</div>
+                        <div className="messageHeader">
+                            <img src={exmpl}/>
+                            <div>{item.author.userName}</div>
+                            <div>{item.subject}</div>
+                            <button onClick={()=>writeMessage(item._id,item.author._id)}>Answer</button>
+                        </div>
                         <form className={vis===item._id?"show":"hide"}>
                             <input type="text" placeholder="subject" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
                             <input type="text" placeholder="your text" value={content} onChange={(e)=>setContent(e.target.value)}/>
                         </form>
-                        <button onClick={()=>writeMessage(item._id,item.author._id)}>send Message</button>
+                        <div>{item.content}</div>
                     </div>
                 ))}
             </section>
