@@ -46,13 +46,19 @@ body{
             background-color: rgb(255,255,245);
             section{
                 >.ProfileCard{
+                    padding: 20px 0;
+                    margin-bottom: 10px;
+                    background-color: antiquewhite;
+                    border-radius: 20px;
                     display: flex;
                     justify-content: space-between;
+                    flex-wrap: wrap;
                     border-bottom:solid 10px rgb(188,70,58); 
                     // border-top:solid 30px rgb(188,70,58);
                     div{
                         .profileHeader{
                             display: flex;
+                            flex-wrap: wrap;
                             justify-content: flex-end;
                         }
                     }
@@ -68,11 +74,14 @@ body{
                     }
                 }
                 >.messages{
+                    padding: 20px 0;
+                    margin-bottom: 10px;
+                    background-color: antiquewhite;
+                    border-radius: 20px;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
                     border-bottom:solid 10px rgb(188,70,58);
-                    // border-top:solid 30px rgb(188,70,58);
                     .show{
                         display: block;
                     }
