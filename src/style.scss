@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 body{
-    height: 100vh;
     margin:0;
-    font-family: "Helvetica Neue";
-    font-size: 2rem;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 1.8rem;
     font-weight: 100;
     background-color: hsl(211, 49%, 14%);
     header{
@@ -14,12 +15,10 @@ body{
             width: 95%;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content:space-between;
             a{
                 color: rgb(255,255,205);
-                padding:15px;
                 text-decoration: none;
                 &:hover{
                     color:rgb(50,50,50);
@@ -27,6 +26,7 @@ body{
                 }
             }
             svg{
+                padding:15px;
                 color: rgb(255,255,205);
                 &:hover {
                     color: rgb(50, 50, 50);
@@ -39,7 +39,7 @@ body{
         article{
             width: 95%;
             max-width: 1200px;
-            margin:0px auto;
+            margin:0 auto;
             padding: 10px;
             background-color: rgb(255,255,245);
             form{
@@ -53,7 +53,7 @@ body{
                 }
                 input{
                     font-size: 2rem;
-                    font-family: "Helvetica Neue";
+                    font-family: "Helvetica Neue", sans-serif;
                     font-weight: 100;
                 }
                 >div{
@@ -62,7 +62,7 @@ body{
                 }
                 select{
                     font-size: 2rem;
-                    font-family: "Helvetica Neue";
+                    font-family: "Helvetica Neue", sans-serif;
                     font-weight: 100;
                     option{
                     }
