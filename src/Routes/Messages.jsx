@@ -26,6 +26,8 @@ export default function Messages(props){
         if(vis&&subject.length>1){
             const headers = { Authorization: `Bearer ${props.token}` }
             const data={subject,content,author:props.user,recipient:author}
+            console.log("author",author)
+            console.log("user",props.user)
 ///ID Of Message or User?
             axios.post(`${process.env.REACT_APP_BE_SERVER}/message/create`,data, {headers})
                 .then(res => {
@@ -44,7 +46,7 @@ export default function Messages(props){
                 {allMsg.map(item=>(
                     <div key={item._id} className="messages">
                         <div className="messageHeader">
-                            <img src={exmpl}/>
+                            <img src={exmpl} alt="ProfilePicture"/>
                             <div>{item.author.userName}</div>
                             <div>{item.subject}</div>
                             <button onClick={()=>writeMessage(item._id,item.author._id)}>Answer</button>
