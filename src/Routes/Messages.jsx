@@ -27,7 +27,7 @@ export default function Messages(props){
             const headers = { Authorization: `Bearer ${props.token}` }
             const data={subject,content,author:props.user,recipient:author}
 ///ID Of Message or User?
-            axios.post(`${process.env.BE_SERVER}/message/create`,data, {headers})
+            axios.post(`${process.env.REACT_APP_BE_SERVER}/message/create`,data, {headers})
                 .then(res => {
                     setSubject("")
                     setContent("")

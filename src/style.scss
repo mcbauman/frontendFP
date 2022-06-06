@@ -44,6 +44,32 @@ body{
             margin:0px auto;
             padding: 10px;
             background-color: rgb(255,255,245);
+            form{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                button{
+                    background-color: white;
+                    color:black;
+                    height: 52px;
+                }
+                input{
+                    font-size: 2rem;
+                    font-family: "Helvetica Neue";
+                    font-weight: 100;
+                }
+                >div{
+                    display: inline-flex;
+                    flex-direction: column;
+                }
+                select{
+                    font-size: 2rem;
+                    font-family: "Helvetica Neue";
+                    font-weight: 100;
+                    option{
+                    }
+                }
+            }
             section{
                 >.ProfileCard{
                     padding: 20px 0;
@@ -96,32 +122,6 @@ body{
                     img{
                         width: 100px;
                         border-radius: 50px;
-                    }
-                }
-            }
-            form{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                button{
-                    background-color: white;
-                    color:black;
-                    height: 52px;
-                }
-                input{
-                    font-size: 2rem;
-                    font-family: "Helvetica Neue";
-                    font-weight: 100;
-                }
-                >div{
-                    display: inline-flex;
-                    flex-direction: column;
-                }
-                select{
-                    font-size: 2rem;
-                    font-family: "Helvetica Neue";
-                    font-weight: 100;
-                    option{
                     }
                 }
             }
