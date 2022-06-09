@@ -4,7 +4,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
-  "homepage": ".",
   "author": "",
   "dependencies": {
     "axios": "^0.27.2",
