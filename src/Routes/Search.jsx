@@ -59,7 +59,6 @@ export default function Search(props){
     
     return(
         <article>
-            SEARCH
             <form onSubmit={submitFunction}>
                 <Select onChange={setInterests} closeMenuOnSelect={false} isMulti options={options}/>
                 <input type="text" onChange={(e)=>setMinAge(e.target.value||0)} placeholder="min age"/>
@@ -74,25 +73,19 @@ export default function Search(props){
             </form>
             <section id="messages">
                 {listOfUsers.map(item=>(
-                        <div key={item._id} className="ProfileCard">
-                            <div>
-                                <div className="profileHeader">
-                                    <img src={item.profilePicture?`${process.env.REACT_APP_BE_SERVER}/picture/${item.profilePicture}`:exmpl}/>
-                                    <div>{item.userName}</div>
-                                    <div>{item.gender}</div>
-                                    <div>{item.age}</div>
-                                    <button className={isFriend(item._id,friends)} onClick={()=>addFriend(item._id,props.token,setFriends)}><FaUserFriends/></button>
-                                    {console.log(item.profilePicture)}
-                                    <button onClick={()=>writeMessage(item._id)}><MdOutlineEmail/></button>
-                                </div>
-                                <div className="profileText">{item.profileText}</div>
-                            </div>
-                            <form className={vis===item._id?"show":"hide"}>
-                                <input type="text" placeholder="subject" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
-                                <input type="text" placeholder="your text" value={content} onChange={(e)=>setContent(e.target.value)}/>
-                            </form>
-                            
-                        </div>
+                    <div key={item._id} className="ProfileCard">
+                        <img className='imgSearch' src={item.profilePicture?`${process.env.REACT_APP_BE_SERVER}/picture/${item.profilePicture}`:exmpl}/>
+                        <div className="searchDivUserName">{item.userName}</div>
+                        <div className='gender'>{item.gender}</div>
+                        <div className='age'>{item.age}</div>
+                        <button className={isFriend(item._id,friends)+" btn1"} onClick={()=>addFriend(item._id,props.token,setFriends)}><FaUserFriends/></button>
+                        <button className="btn2" onClick={()=>writeMessage(item._id)}><MdOutlineEmail/></button>
+                        <div className="profileText">{item.profileText}</div>
+                        <form className={vis===item._id?"show":"hide"}>
+                            <input type="text" placeholder="subject" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
+                            <input type="text" placeholder="your text" value={content} onChange={(e)=>setContent(e.target.value)}/>
+                        </form>
+                    </div>
                 ))}
             </section>
         </article>
