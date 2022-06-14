@@ -23,7 +23,7 @@ export default function Profile(props){
     const {theme,setTheme}=useContext(Context)
     const [usr,setUsr]=useState(null)
     const notifySuccess = () => toast("Your profile is updated");
-    const notifyDelFrien=()=>toast("friend removed ")
+    const notifyDelFriend=()=>toast("friend removed ")
     const notifyError = (text) => toast(text);
     
     function handleSelectedFile(e){
@@ -87,8 +87,7 @@ export default function Profile(props){
             })
     }
     
-    //Load Default of Theme and Lang into the Select
-    //delete the props.theme
+    //<div className="profPicDiv" style={item.profilePicture ? `background-image: url(${process.env.REACT_APP_BE_SERVER}/picture/${item.profilePicture})` : `background-image: url(${exmpl})`}></div>
     
     return(
         <article>
@@ -130,6 +129,7 @@ export default function Profile(props){
                         {trans[lang].YoureFriends}:
                         {usr.friends.map(item=>(
                             <div className="friendsView" id={item.userName}>
+                                
                                 <img src={item.profilePicture?`${process.env.REACT_APP_BE_SERVER}/picture/${item.profilePicture}`:exmpl}/>
                                 <div>{item.userName}</div>
                                 <button><MdOutlineDeleteForever/></button>
@@ -137,7 +137,7 @@ export default function Profile(props){
                             </div>
                         ))}
                     </form>
-                ):<div>LOADING</div>}
+                ):(<div className="loadingio-spinner-ripple-jjyczsl43u"><div className="ldio-qydde5o934a"><div></div><div></div></div></div>)}
             </section>
             <ToastContainer position="bottom-center"
                             autoClose={5000}
