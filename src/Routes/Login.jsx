@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import axios from "axios"
 import {NavLink} from "react-router-dom";
 import {MdLogin} from "react-icons/md"
@@ -9,8 +9,8 @@ import {toast, ToastContainer} from "react-toastify";
 export default function Login(props){
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
-    const {setLang}=useContext(Context)
-    const {setTheme}=useContext(Context)
+    const {lang,setLang}=useContext(Context)
+    const {theme,setTheme}=useContext(Context)
     const notifySuccess = (name) => toast(`welcome back!${name}`);
     const notifyError = (text) => toast(text);
 
@@ -18,14 +18,13 @@ export default function Login(props){
         e.preventDefault()
         axios.post(`${process.env.REACT_APP_BE_SERVER}/user/login`,{email,password})
         .then(resp=>{
-            console.log(resp.data);
             props.setUser(resp.data._id)
             props.setToken(resp.data.token)
             props.setUserProfPic(resp.data.profilePicture)
             setLang(resp.data.lang)
             setTheme(resp.data.theme)
-            localStorage.setItem("theme",JSON.stringify(resp.data.theme))
-            localStorage.setItem("lang",JSON.stringify(resp.data.lang))
+            localStorage.setItem("theme",JSON.stringify(theme))
+            localStorage.setItem("lang",JSON.stringify(lang))
             notifySuccess(resp.data.userName)
         })
         .catch(err=>{
