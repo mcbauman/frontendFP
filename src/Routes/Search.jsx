@@ -36,7 +36,7 @@ export default function Search(props) {
       .post(`${process.env.REACT_APP_BE_SERVER}/user/find`, body, { headers })
       .then((res) => {
         const opts = {yName: "latitude", xName: "longitude"};
-        const origin = { longitude: latitude, latitude: longitude };
+        const origin = { longitude: longitude, latitude: latitude };
         // console.log(sortByDistance(origin, res.data, opts));
         const sortedByDistance = sortByDistance(origin, res.data, opts);
         setListOfUser(sortedByDistance);
@@ -76,6 +76,7 @@ export default function Search(props) {
         .catch(error => notifyFeedback(error.response.data.error[0].content || "Unknown error"))
     }
   }
+
     return(
         <article id="forum">
             <form onSubmit={submitFunction}>
@@ -104,7 +105,7 @@ export default function Search(props) {
                         <div className="searchDivUserName">{item.userName}</div>
                         <div className='gender'>{item.gender}</div>
                         <div className='age'>{item.age}</div>
-                        <div>{item.distance}</div>
+                        <div>{(item.distance*75).toFixed(2)} km</div>
                         <button className={isFriend(item._id,friends)+" btn1"} 
                             onClick={()=>addFriend(item._id,props.token,setFriends)}>
                             {/* <FaUserFriends/> */}
@@ -133,3 +134,4 @@ export default function Search(props) {
         </article>
     )
 }
+

@@ -1,76 +1,99 @@
+
 body{
     div{
         main{
             #forum{
                 >form{
-                    // display: flex;
-                    // flex-wrap: wrap;
-                    // justify-content: space-around;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
                     input{
-                        // width: 100px;
+                        width: 100px;
+                        height: 36px;
+                        margin-bottom: 2px;
                     }
-                    // .selectInSearch{
-                    //     width: 100px;
-                    //     padding: 0;
-                    //     .css-319lph-ValueContainer{
-                    //         padding: 0%;
-                    //         .css-6j8wv5-Input{
-                    //             padding: 0%;
-                    //             margin: 0;
-                    //         }
-                    //     }
-                    // }
-                    .searchBTN {
+                    select{
+                        width: 100px;
+                        height: 38px;
+                        padding: 0;
+                        margin-bottom: 2px;
+                    }
+                    .selectInSearch{
+                        min-width: 100px;
+                        padding: 0;
+                        display: flex;
+                        .css-319lph-ValueContainer{
+                            padding: 0%;
+                            .css-6j8wv5-Input{
+                                padding: 0%;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    button {
                         background-image: url(../components/icons8-search.gif);
                         background-position: center;
                         background-size: contain;
                         background-repeat: no-repeat;
-                        height: 30px;
+                        width: 100px;
+                        height: 38px;
                         box-shadow: none;
+                        background-size:2rem;
+                        z-index: 1;
                     }
-                    .searchBTN:hover {
+                    button:hover {
                         background-color: white;
                         border: none;
                         box-shadow: none;
                         transform: none;
-                        transform: scale(1.4);
+                        transform: scale(1.1);
                     }
                 }
                 #messagesSearch{
                     .ProfileCard{
                         display: grid;
-                        // grid-template-columns: 200px repeat(5, 1fr);
-                        // grid-template-areas: 
-                        // "img name gender age btn1 btn2" 
-                        // "img profT profT profT profT profT" 
-                        // "form form form form form form";
                         .imgSearch{
                             grid-area: img;
                         }
                         .searchDivUserName{
                             grid-area: name;
-                            margin-left: 10px;
+                            margin-left: 20px;
+                            align-self: center;
+                            font-weight: 900;
                         }
                         .gender{
                             grid-area: gender;
-                            text-align: center;
+                            // text-align: center;
+                            font-size: 3.5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                         .age{
                             grid-area: age;
                             text-align: center;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                         .btn1{
                             grid-area: btn1;
                             justify-self: center;
+                            align-self: center;
                         }
                         .btn2{
                             grid-area: btn2;
                             justify-self: center;
+                            align-self: center;
                         }
                         .profileText{
                             border: none;
                             grid-area: profT;
-                            // margin-left: 10px;
+                            padding-left: 10px;
+                            border-top: 2px solid var(--darkmain);
+                            margin: 3px 0 0 10px;
+                            display: inline-block;
+
                         }
                         form{
                             width: 100%;
