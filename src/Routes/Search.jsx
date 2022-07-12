@@ -21,11 +21,11 @@ export default function Search(props) {
   const [minAge, setMinAge] = useState(0);
   const [maxAge, setMaxAge] = useState(150);
   const [srchdGender, setSrchdGender] = useState("any");
-  const options = Activities;
   const [vis, setVis] = useState(false);
   const [content, setContent] = useState("");
   const [friends, setFriends] = useState([]);
   const { lang,latitude, longitude } = useContext(Context);
+  const options = Activities[lang];
   const notifyFeedback = (text) => toast(text);
 
   function requestServer() {
@@ -105,7 +105,7 @@ export default function Search(props) {
                         <div className="searchDivUserName">{item.userName}</div>
                         <div className='gender'>{item.gender}</div>
                         <div className='age'>{item.age}</div>
-                        <div>{(item.distance*75).toFixed(2)} km</div>
+                        <div className="distance">{(item.distance*75).toFixed(2)} km</div>
                         <button className={isFriend(item._id,friends)+" btn1"} 
                             onClick={()=>addFriend(item._id,props.token,setFriends)}>
                             {/* <FaUserFriends/> */}
