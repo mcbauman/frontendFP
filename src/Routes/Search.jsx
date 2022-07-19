@@ -24,7 +24,7 @@ export default function Search(props) {
   const [vis, setVis] = useState(false);
   const [content, setContent] = useState("");
   const [friends, setFriends] = useState([]);
-  const { lang,latitude, longitude } = useContext(Context);
+  const { lang,latitude, longitude} = useContext(Context);
   const options = Activities[lang];
   const notifyFeedback = (text) => toast(text);
 
@@ -117,7 +117,8 @@ export default function Search(props) {
                         <form className={vis===item._id?"show":"hide"} 
                             onSubmit={(e)=>{e.preventDefault();writeMessage(item._id)}}>
                             <input type="text" placeholder="your text" value={content} 
-                            onChange={(e)=>setContent(e.target.value)} className="maxW"/>
+                            onChange={(e)=>{setContent(e.target.value)}} 
+                            className="maxW"/>
                         </form>
                     </section>
                 ))}

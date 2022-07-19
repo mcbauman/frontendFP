@@ -15,13 +15,12 @@ import "../components/Chat.scss";
 export default function Messages(props){
     const [chats, setChats] = useState([])
     const [friends,setFriends]=useState([])
-    const {hide,setHide}=useContext(Context)
+    const {hide,setHide, newMessageNotification, setNewMessageNotification}=useContext(Context)
 
     function loadChats(){
     const headers = { Authorization: `Bearer ${props.token}` }
     axios.get(`${process.env.REACT_APP_BE_SERVER}/chats`, {headers})
         .then (res=>{
-            console.log(res.data)
             setChats(res.data)
         })
         .catch(error => {
@@ -70,7 +69,8 @@ export default function Messages(props){
                             <NavLink key={item._id} to={item._id}>
                                 <img className="img2" 
                                 src={item.other.profilePicture?`${process.env.REACT_APP_BE_SERVER}/picture/${item.other.profilePicture}`:exmpl}/>
-                                <div className="author">{item.other.userName}</div>
+{/* unread style given by class name = newMessage (isNewMessageCame: is used, newMessageNotification: is not used) */}
+                                <div className={"author" + (item.redBy.includes(props.user)? "" : " newMessage")}>{item.other.userName}</div> 
                             </NavLink>
                             <button className={isFriend(
                                 item.other._id,friends
